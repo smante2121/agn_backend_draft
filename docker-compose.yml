@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  mariadb:
+    image: mariadb:latest
+    container_name: agn_db
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+      MYSQL_DATABASE: blackbase
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./BackEnd-Express-master/create_db.sql:/docker-entrypoint-initdb.d/create_db.sql
+      - mariadb_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mariadb", "-e", "SELECT 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  fastapi:
+    build: 
+      context: ./BackEnd-Express-master
+      dockerfile: Dockerfile
+    container_name: agn_api
+    ports:
+      - "8000:8000"
+    depends_on:
+      mariadb:
+        condition: service_healthy
+    environment:
+      - DATABASE_URL=mysql+pymysql://root:@mariadb/blackbase
+
+  frontend:
+    build:
+      context: ./FrontEnd-React-master
+      dockerfile: Dockerfile
+    container_name: agn_frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - fastapi
+    environment:
+      - REACT_APP_API_URL=http://localhost:8000
+
+volumes:
+  mariadb_data: 

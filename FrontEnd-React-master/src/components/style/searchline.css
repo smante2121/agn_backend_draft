@@ -1,0 +1,108 @@
+
+/* SearchContext */
+    .textarea-for-searchContext{
+        margin-left: 1%;
+        background-color: white;
+        color: black
+    }
+
+    #overlay{
+        position: fixed;
+        display: block;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,0.5);
+        z-index: 2;
+        cursor: pointer;
+    }
+
+/* SearchContest */
+
+/* Search: */
+    .submitbtn{
+        margin-top: 2%;
+        margin-bottom: 2%;
+    }
+/* Search */
+
+/* SearchBlock: */
+    .query_block{
+        border:solid 2px;
+        border-radius: 5px;
+        background-color:rgba(255,255, 255,0.5);
+        /* opacity: 0.5; */
+
+    }
+
+    .query_block > span{
+        opacity: 1;
+    }
+
+
+    .checkbox-inline-blocks{
+        margin-left: 47.5%;
+        padding-top: 2%;
+        padding-bottom: 2%;
+
+    }
+/* SearchBlock */
+
+/* SearchLine: */
+    .remove{
+        margin-left: 5px;
+    }
+
+    .d_inline{
+        vertical-align: middle;
+
+    }
+
+    .d_inline1 {
+        margin-left: 1%;
+    }
+
+    .checkbox-inline-lines{
+        padding: 0px;
+        margin-left: 32%;
+    }
+
+    .textarea-for-input{
+        margin-left: 1%;
+        background-color: black;
+        color: white
+    }
+
+/* SearchLine */
+
+  
+  
+  /* loading dots */
+  
+  .loading:after {
+    content: ' .';
+    animation: dots 1s steps(5, end) infinite;}
+  
+  @keyframes dots {
+    0%, 20% {
+      color: rgba(0,0,0,0);
+      text-shadow:
+        .25em 0 0 rgba(0,0,0,0),
+        .5em 0 0 rgba(0,0,0,0);}
+    40% {
+      color: white;
+      text-shadow:
+        .25em 0 0 rgba(0,0,0,0),
+        .5em 0 0 rgba(0,0,0,0);}
+    60% {
+      text-shadow:
+        .25em 0 0 white,
+        .5em 0 0 rgba(0,0,0,0);}
+    80%, 100% {
+      text-shadow:
+        .25em 0 0 white,
+        .5em 0 0 white;}}
+  

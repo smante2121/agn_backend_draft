@@ -1,0 +1,6 @@
+downloads
+node_modules
+.python-version
+package-lock.json
+.idea
+.vscode
